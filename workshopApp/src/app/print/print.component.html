@@ -1,0 +1,68 @@
+<div class="grid" [formGroup]="myForm">
+  <div class="col">
+    <p-card header="Form To Print">
+      <div class="flex flex-column gap-2 formField">
+        <label for="username">Title</label>
+        <input
+          pInputText
+          id="username"
+          aria-describedby="username-help"
+          formControlName="title"
+        />
+      </div>
+      <div class="flex flex-column gap-2 formField">
+        <label for="username">Description</label>
+        <input
+          pInputText
+          id="username"
+          aria-describedby="username-help"
+          formControlName="description"
+        />
+      </div>
+
+      <div class="flex flex-column gap-2 formField">
+        <label for="username">Custom notes</label>
+        <p-editor
+          [style]="{ height: '200px' }"
+          formControlName="customNotes"
+        ></p-editor>
+      </div>
+
+      <div class="flex flex-column gap-2 formField">
+        <label for="username">Add static description</label>
+        <p-inputSwitch formControlName="isStaticDescription"></p-inputSwitch>
+      </div>
+    </p-card>
+  </div>
+  <div class="col">
+    <div class="rawContent">
+        <h3>Raw Content</h3>
+      <div #printContent>
+        <app-raw-content [form]="myForm"></app-raw-content>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-toolbar>
+  <div class="p-toolbar-group-start">
+    <button
+      *ngIf="!isPrintLoading"
+      pButton
+      icon="pi pi-print"
+      class="mr-2"
+      (click)="print()"
+    ></button>
+    <p-progressSpinner
+      *ngIf="isPrintLoading"
+      styleClass="w-3rem h-3rem"
+    ></p-progressSpinner>
+    <span class="p-input-icon-left">
+      <i class="pi pi-file-edit"></i>
+
+      <input pInputText placeholder="Filename" [(ngModel)]="filename" />
+    </span>
+  </div>
+  <div class="p-toolbar-group-center"></div>
+  <div class="p-toolbar-group-end"></div>
+</p-toolbar>

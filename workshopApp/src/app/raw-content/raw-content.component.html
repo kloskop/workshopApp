@@ -1,0 +1,24 @@
+<div class="printContent">
+  <p>Title</p>
+
+  <div>{{ form.get("title")?.value || "-" }}</div>
+
+  <p>Description</p>
+
+  <div>{{ form.get("description")?.value || "-" }}</div>
+
+  <p>Custom notes</p>
+
+  <div [innerHTML]="form.get('customNotes')?.value"></div>
+  <div *ngIf="!form.get('customNotes')?.value">-</div>
+
+  <div *ngIf="form.get('isStaticDescription')?.value">
+    <p>Static description</p>
+    <i
+      >This document dives into the simple stuff we encounter every day,
+      shedding light on the regular and unremarkable. It's all about taking a
+      closer look at the ordinary things that often go unnoticed, making the
+      everyday moments a bit more interesting.</i
+    >
+  </div>
+</div>

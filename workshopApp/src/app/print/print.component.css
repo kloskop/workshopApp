@@ -1,0 +1,13 @@
+p-card {
+    margin: 1rem;
+}
+
+.formField {
+    margin-top: 1rem;
+}
+
+.rawContent {
+    padding: 0 2rem 2rem 2rem;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
