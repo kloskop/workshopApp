@@ -10,6 +10,7 @@
   <p>Custom notes</p>
 
   <div [innerHTML]="form.get('customNotes')?.value"></div>
+  
   <div *ngIf="!form.get('customNotes')?.value">-</div>
 
   <div *ngIf="form.get('isStaticDescription')?.value">
